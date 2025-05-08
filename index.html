@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Digital Head SpA | Servicios y Demos</title>
   <!-- FontAwesome para iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
@@ -42,6 +42,7 @@
       color: var(--dark);
       margin-bottom: 1rem;
       position: relative;
+      font-size: 1.8rem;
     }
     h2.section-title::after {
       content: "";
@@ -92,20 +93,100 @@
       color: var(--secondary);
     }
 
-    /* Embeds */
-    .embed {
-      background: #fff;
-      padding: 2rem;
-      border-radius: var(--radius);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    /* Mini-Landing NFC */
+    #minilanding {
       margin: 3rem 0;
       text-align: center;
     }
-    .embed iframe {
+    #minilanding .card {
+      max-width: 360px;
+      margin: auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    #minilanding .card .top {
+      padding: 1.5rem;
+      background: #f0f8ff;
+    }
+    #minilanding .card .top .avatar {
+      width: 60px; height: 60px;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+    }
+    #minilanding .card .top h3 {
+      margin: 0; font-size: 1.25rem; color: var(--primary);
+    }
+    #minilanding .card .top p.location {
+      margin: .25rem 0; color: #555;
+    }
+    #minilanding .card .top p.message {
+      margin-top: 1rem; font-size: 1rem; color: var(--primary);
+    }
+    #minilanding .card a {
+      display: block;
+      padding: .75rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-top: 1px solid #e0f2f1;
+    }
+    #minilanding .card a.instagram {
+      background: linear-gradient(90deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+    }
+    #minilanding .card a.form {
+      background: var(--secondary);
+    }
+
+    /* Trivia */
+    #trivia {
+      margin: 3rem 0;
+      text-align: center;
+    }
+    #trivia-card {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    #trivia-card #question {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    #trivia-card button.choice {
+      display: block;
       width: 100%;
-      height: 600px;
+      margin: .5rem 0;
+      padding: .75rem;
       border: none;
-      border-radius: var(--radius);
+      border-radius: 6px;
+      background: #e0e0e0;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    #trivia-card button.choice.correct {
+      background: #55efc4;
+    }
+    #trivia-card button.choice.wrong {
+      background: #ff7675;
+    }
+    #next-btn {
+      margin-top: 1.5rem;
+      padding: .75rem 1.5rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: none;
+    }
+    #score {
+      margin-top: 1.5rem;
+      font-weight: 600;
     }
 
     /* Contacto */
@@ -190,24 +271,34 @@
     </div>
 
     <!-- 2. Mini-Landing NFC -->
-    <h2 id="minilanding" class="section-title">Mini-Landing NFC de Ejemplo</h2>
-    <div class="embed">
-      <iframe
-        src="https://profecristian.my.canva.site/minilanding-nfc-ircd-iquique"
-        allowfullscreen>
-      </iframe>
-      <p>Acerca tu teléfono a la etiqueta o haz clic dentro del recuadro para probar.</p>
-    </div>
+    <section id="minilanding">
+      <h2 class="section-title">🔗 Mini-Landing NFC de Ejemplo</h2>
+      <div class="card">
+        <div class="top">
+          <div class="avatar"></div>
+          <h3>Iglesia Reconcíliate con Dios</h3>
+          <p class="location">Iquique</p>
+          <p class="message">¡Dios no se ha olvidado de ti! 🙌</p>
+        </div>
+        <a href="https://instagram.com/ircd_iquique" target="_blank" class="instagram">
+          <i class="fab fa-instagram"></i> Ver @ircd_iquique
+        </a>
+        <a href="https://forms.gle/nuTz4pJ2kqSQJLrb9" target="_blank" class="form">
+          <i class="fas fa-heart"></i> Rellenar formulario confidencial
+        </a>
+      </div>
+    </section>
 
     <!-- 3. Trivia de Salvación -->
-    <h2 id="trivia" class="section-title">Trivia de Salvación</h2>
-    <div class="embed">
-      <iframe
-        src="https://profecristian.my.canva.site/trivia-salvacion"
-        allowfullscreen>
-      </iframe>
-      <p>Responde las preguntas directamente aquí y fortalece tu fe.</p>
-    </div>
+    <section id="trivia">
+      <h2 class="section-title">🎮 Trivia de Salvación</h2>
+      <div id="trivia-card">
+        <div id="question"></div>
+        <div id="choices"></div>
+        <button id="next-btn">Siguiente</button>
+        <div id="score"></div>
+      </div>
+    </section>
 
     <!-- 4. Contacto -->
     <section class="contact">
@@ -223,6 +314,62 @@
     © 2025 Digital Head SpA · <a href="politica.html">Política de Privacidad</a>
   </footer>
 
+  <script>
+    // Trivia de Salvación
+    const questions = [
+      { q: "¿Qué significa “salvación” en el contexto cristiano?", choices: ["Perdón de pecados","Exclusión social","Castigo eterno","Ritos religiosos"], correct: 0 },
+      { q: "¿Quién es considerado el Salvador en la fe cristiana?", choices: ["Moisés","Jesús","Pablo","Pedro"], correct: 1 },
+      { q: "Según Juan 3:16, ¿por qué entregó Dios a su Hijo?", choices: ["Para gobernar Israel","Para dar vida eterna","Para establecer una nueva ley","Para escribir la Biblia"], correct: 1 },
+      { q: "¿Qué acto simboliza la nueva vida en Cristo?", choices: ["Bautismo","Ayuno","Santuario","Campaña"], correct: 0 },
+      { q: "¿Cómo accedemos a la gracia de Dios?", choices: ["Por obras","Por fe","Por conocimiento","Por esfuerzo"], correct: 1 }
+    ];
+    let current = 0, score = 0;
+    const qEl = document.getElementById("question"),
+          cEl = document.getElementById("choices"),
+          nBtn = document.getElementById("next-btn"),
+          sEl = document.getElementById("score");
+
+    function showQuestion() {
+      const {q, choices} = questions[current];
+      qEl.textContent = q;
+      cEl.innerHTML = "";
+      choices.forEach((text,i) => {
+        const btn = document.createElement("button");
+        btn.textContent = text;
+        btn.className = "choice";
+        btn.onclick = () => selectAnswer(i, btn);
+        cEl.appendChild(btn);
+      });
+      nBtn.style.display = "none";
+      sEl.textContent = "";
+    }
+
+    function selectAnswer(i, btn) {
+      document.querySelectorAll(".choice").forEach(b=>b.disabled=true);
+      const correct = questions[current].correct;
+      if (i===correct) {
+        score++;
+        btn.classList.add("correct");
+      } else {
+        btn.classList.add("wrong");
+        document.querySelectorAll(".choice")[correct].classList.add("correct");
+      }
+      nBtn.style.display = "inline-block";
+    }
+
+    nBtn.onclick = () => {
+      current++;
+      if (current < questions.length) {
+        showQuestion();
+      } else {
+        qEl.textContent = "¡Has completado la trivia!";
+        cEl.innerHTML = "";
+        nBtn.style.display = "none";
+        sEl.textContent = `Tu puntaje: ${score} / ${questions.length}`;
+      }
+    };
+
+    showQuestion();
+  </script>
 </body>
 </html>
-
