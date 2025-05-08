@@ -3,78 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Head SpA | Servicios Digitales</title>
-
-  <!-- Google Fonts & FontAwesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
+  <title>Head SpA | Servicios y Demostraciones</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0; padding: 0;
       background: #f4f4f4; color: #333;
-      line-height: 1.6;
+      line-height: 1.5;
     }
     header {
       background: #0984e3; color: #fff;
-      text-align: center; padding: 40px 20px;
+      text-align: center; padding: 30px 20px;
     }
-    header h1 { margin: 0; font-size: 2.2em; }
-    header p  { margin: 8px 0 0; font-size: 1.1em; }
+    header h1 { margin: 0; font-size: 2em; }
+    header p  { margin: 5px 0 0; }
 
-    .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+    .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
 
-    /* Servicios */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #fff; padding: 20px; border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,.1);
-      transition: transform .3s, box-shadow .3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,.15);
-    }
-    .card h3 {
-      margin-top: 0; color: #0a3d62;
-      font-size: 1.2em;
-    }
-    .card ul { padding-left: 1.2em; }
-    .card li {
-      margin-bottom: .5em;
-      position: relative;
-    }
-    .card li:before {
-      content: "✅"; position: absolute; left: -1.2em; color: #00b894;
-    }
-
-    /* CTA Button */
-    .cta {
-      text-align: center; margin: 40px 0;
-    }
-    .cta a {
-      display: inline-block; background: #00b894; color: #fff;
-      padding: 12px 24px; text-decoration: none; border-radius: 6px;
-      font-weight: 600; transition: background .3s;
-    }
-    .cta a:hover { background: #019875; }
-
-    /* Embeds */
-    section.embed {
-      background: #fff; padding: 40px 20px; margin: 40px 0;
-      border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,.1);
+    /* Mini-landing */
+    #mini-landing {
+      background: #fff; padding: 30px; border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,.1); margin-bottom: 40px;
       text-align: center;
     }
-    section.embed h2 { margin-top: 0; color: #0984e3; }
+    #mini-landing h2 { color: #0a3d62; margin-top: 0; }
+    #mini-landing p { font-size: 1.1em; }
+    #mini-landing .buttons a {
+      display: inline-block; margin: 10px; padding: 10px 20px;
+      background: #00b894; color: #fff; text-decoration: none;
+      border-radius: 6px; transition: background .3s;
+    }
+    #mini-landing .buttons a:hover { background: #019875; }
+
+    /* Trivia */
+    #trivia {
+      background: #fff; padding: 30px; border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,.1);
+      text-align: center; margin-bottom: 40px;
+    }
+    #trivia h2 { color: #0a3d62; margin-top: 0; }
+    #question { font-size: 1.2em; margin-bottom: 20px; }
+    .choices button {
+      display: block; width: 100%; max-width: 400px;
+      margin: 8px auto; padding: 10px;
+      background: #dfe6e9; border: none; border-radius: 4px;
+      cursor: pointer; transition: background .2s;
+    }
+    .choices button:hover { background: #b2bec3; }
+    .choices button.correct { background: #55efc4; }
+    .choices button.wrong   { background: #ff7675; }
+    #next-btn {
+      margin-top: 20px; padding: 10px 20px;
+      background: #0984e3; color: #fff; border: none;
+      border-radius: 4px; cursor: pointer; display: none;
+    }
+    #score {
+      font-size: 1.1em; margin-top: 20px;
+    }
 
     footer {
       background: #dfe6e9; text-align: center;
-      padding: 20px; font-size: .9em; margin-top: 60px;
+      padding: 20px; font-size: .9em;
     }
     footer a { color: #0a3d62; text-decoration: none; }
   </style>
@@ -83,83 +72,119 @@
 
   <header>
     <h1>Head SpA</h1>
-    <p>Soluciones digitales para iglesias, colegios y emprendedores</p>
+    <p>Demostraciones: Mini-Landing NFC & Trivia de Salvación</p>
   </header>
 
   <div class="container">
 
-    <!-- Servicios -->
-    <h2 style="color:#0a3d62; text-align:center;">🎯 Nuestros Servicios</h2>
-    <div class="services">
-      <div class="card">
-        <h3>🧠 Evaluaciones de Lenguaje</h3>
-        <ul>
-          <li>Pruebas de comprensión lectora (Media)</li>
-          <li>Estándar y adaptada para NEE</li>
-          <li>Editable (Word, PDF, Google Forms)</li>
-          <li>Solucionario y rúbrica simplificada</li>
-        </ul>
+    <!-- Mini-landing NFC embebido en HTML -->
+    <section id="mini-landing">
+      <h2>🔗 Mini-Landing NFC</h2>
+      <p>Acerca tu teléfono a una pulsera o pegatina NFC para acceder a:</p>
+      <div class="buttons">
+        <a href="https://wa.me/56933150245" target="_blank">WhatsApp</a>
+        <a href="https://instagram.com/digitalhead.cl" target="_blank">Instagram</a>
+        <a href="https://forms.gle/nuTz4pJ2kqSQJLrb9" target="_blank">Formulario de Oración</a>
       </div>
-      <div class="card">
-        <h3>🎮 Juegos interactivos en Canva</h3>
-        <ul>
-          <li>Trivias bíblicas y ruletas educativas</li>
-          <li>Test de personajes y preguntas temáticas</li>
-          <li>Compartible en web y redes sociales</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>📲 NFC para eventos</h3>
-        <ul>
-          <li>Pulseras y pegatinas programadas</li>
-          <li>Landing pages en Canva o custom</li>
-          <li>Compatible Android & iPhone</li>
-          <li>Reescribible, bloqueable y resistente</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>🔄 Redes & Formularios</h3>
-        <ul>
-          <li>Diseño de identidad (logo, biografía)</li>
-          <li>Gestión básica de Instagram/Facebook</li>
-          <li>Automatización de mensajes y encuestas</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Embed Mini-Landing NFC -->
-    <section class="embed">
-      <h2>🔗 Prueba nuestra Mini-Landing NFC</h2>
-      <iframe
-        src="https://profecristian.my.canva.site/minilanding-nfc-ircd-iquique"
-        width="100%" height="400" style="border:1px solid #ddd; border-radius:6px;">
-      </iframe>
-      <p>Escanea una etiqueta NFC o haz clic para ver la experiencia.</p>
     </section>
 
-    <!-- Embed Trivia -->
-    <section class="embed">
+    <!-- Trivia de Salvación implementada en JS -->
+    <section id="trivia">
       <h2>🎮 Trivia de Salvación</h2>
-      <iframe
-        src="https://profecristian.my.canva.site/trivia-salvacion" 
-        width="100%" height="400" style="border:1px solid #ddd; border-radius:6px;">
-      </iframe>
-      <p>Pon a prueba tus conocimientos sobre la salvación en Cristo.</p>
+      <div id="question"></div>
+      <div class="choices"></div>
+      <button id="next-btn">Siguiente</button>
+      <div id="score"></div>
     </section>
-
-    <!-- CTA -->
-    <div class="cta">
-      <a href="https://wa.me/56933150245" target="_blank">
-        <i class="fas fa-comments"></i> Cotiza tu servicio ahora
-      </a>
-    </div>
 
   </div>
 
   <footer>
-    <p><a href="politica.html">Política de Privacidad</a></p>
-    <p>© 2025 Head SpA · Diseñado con propósito en Tarapacá</p>
+    <p><a href="politica.html">Política de Privacidad</a> · Contacto: +56 9 3315 0245</p>
+    <p>© 2025 Head SpA</p>
   </footer>
+
+  <script>
+    // Datos de la trivia
+    const questions = [
+      {
+        q: "¿Qué significa “salvación” en el contexto cristiano?",
+        choices: ["Perdón de pecados", "Exclusión social", "Castigo eterno", "Ritos religiosos"],
+        correct: 0
+      },
+      {
+        q: "¿Quién es considerado el Salvador en la fe cristiana?",
+        choices: ["Moisés", "Jesús", "Pablo", "Pedro"],
+        correct: 1
+      },
+      {
+        q: "Según Juan 3:16, ¿por qué entregó Dios a su Hijo?​",
+        choices: ["Para gobernar Israel", "Para dar vida eterna",
+                  "Para establecer una nueva ley", "Para escribir la Biblia"],
+        correct: 1
+      },
+      {
+        q: "¿Qué acto simboliza la nueva vida en Cristo?",
+        choices: ["Bautismo", "Ayuno", "Santuario", "Campaña"],
+        correct: 0
+      },
+      {
+        q: "¿Cómo accedemos a la gracia de Dios?​",
+        choices: ["Por obras", "Por fe", "Por conocimiento", "Por esfuerzo"],
+        correct: 1
+      }
+    ];
+    let current = 0, score = 0;
+
+    const questionEl = document.getElementById('question');
+    const choicesEl  = document.querySelector('.choices');
+    const nextBtn    = document.getElementById('next-btn');
+    const scoreEl    = document.getElementById('score');
+
+    function showQuestion() {
+      const q = questions[current];
+      questionEl.textContent = q.q;
+      choicesEl.innerHTML = '';
+      q.choices.forEach((c, i) => {
+        const btn = document.createElement('button');
+        btn.textContent = c;
+        btn.addEventListener('click', () => selectAnswer(i, btn));
+        choicesEl.appendChild(btn);
+      });
+      nextBtn.style.display = 'none';
+      scoreEl.textContent = '';
+    }
+
+    function selectAnswer(i, btn) {
+      const correctIndex = questions[current].correct;
+      document.querySelectorAll('.choices button').forEach(b => b.disabled = true);
+      if (i === correctIndex) {
+        btn.classList.add('correct');
+        score++;
+      } else {
+        btn.classList.add('wrong');
+        // marcar la correcta
+        document.querySelectorAll('.choices button')[correctIndex]
+               .classList.add('correct');
+      }
+      nextBtn.style.display = 'inline-block';
+    }
+
+    nextBtn.addEventListener('click', () => {
+      current++;
+      if (current < questions.length) {
+        showQuestion();
+      } else {
+        questionEl.textContent = "¡Has completado la trivia!";
+        choicesEl.innerHTML = '';
+        nextBtn.style.display = 'none';
+        scoreEl.textContent = `Tu puntaje: ${score} / ${questions.length}`;
+      }
+    });
+
+    // Inicia la trivia
+    showQuestion();
+  </script>
 
 </body>
 </html>
