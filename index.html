@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Digital Head SpA | Nuestros Servicios</title>
-  <!-- FontAwesome CDN para los check -->
+  <title>Digital Head SpA | Servicios y Demos</title>
+  <!-- FontAwesome para iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     :root {
@@ -16,7 +16,7 @@
       --radius: 8px;
       --transition: .3s ease;
     }
-    * { box-sizing: border-box; margin:0; padding:0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Poppins', sans-serif;
       background: var(--light);
@@ -29,36 +29,41 @@
       text-align: center;
       padding: 2rem 1rem;
     }
-    header h1 { margin:0; font-size:2rem; }
-    header p { margin-top: .5rem; font-size:1.1rem; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin-top: .5rem; font-size: 1.1rem; }
+
     .container {
       max-width: 1000px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
     h2.section-title {
-      text-align:center;
+      text-align: center;
       color: var(--dark);
-      margin-bottom:1rem;
-      position:relative;
+      margin-bottom: 1rem;
+      position: relative;
     }
     h2.section-title::after {
-      content:""; display:block;
-      width:60px; height:4px;
-      background:var(--secondary);
-      margin:.5rem auto 0;
-      border-radius:var(--radius);
+      content: "";
+      display: block;
+      width: 60px; height: 4px;
+      background: var(--secondary);
+      margin: .5rem auto 0;
+      border-radius: var(--radius);
     }
+
+    /* Servicios */
     .services {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
     }
     .card {
-      background:#fff;
-      padding:1.5rem;
-      border-radius:var(--radius);
-      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       transition: transform var(--transition), box-shadow var(--transition);
     }
     .card:hover {
@@ -66,56 +71,73 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     }
     .card h3 {
-      margin-bottom:1rem;
-      color:var(--primary);
-      font-size:1.2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-size: 1.2rem;
     }
     .card ul {
-      list-style:none;
-      padding-left:0;
+      list-style: none;
+      padding-left: 0;
     }
     .card li {
-      margin:.5rem 0;
-      padding-left:1.5rem;
-      position:relative;
+      margin: .5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
     }
     .card li::before {
       content: "\f058";
-      font-family:"Font Awesome 6 Free";
-      font-weight:900;
-      position:absolute;
-      left:0;
-      color:var(--secondary);
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute; left: 0;
+      color: var(--secondary);
     }
+
+    /* Embeds */
+    .embed {
+      background: #fff;
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .embed iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: var(--radius);
+    }
+
+    /* Contacto */
     .contact {
-      background:#fff;
-      padding:2rem;
-      border-radius:var(--radius);
-      box-shadow:0 2px 8px rgba(0,0,0,0.05);
-      margin:2rem 0;
-      text-align:center;
+      background: #fff;
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin: 2rem 0;
+      text-align: center;
     }
     .contact p {
-      margin:0.5rem 0;
-      font-size:1rem;
+      margin: .5rem 0;
+      font-size: 1rem;
     }
     .contact a {
-      color:var(--primary);
-      text-decoration:none;
-      font-weight:600;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
     }
+
     footer {
-      text-align:center;
-      padding:2rem 1rem;
-      font-size:.9rem;
-      background:var(--light);
-      margin-top:2rem;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: .9rem;
+      background: var(--light);
+      margin-top: 2rem;
     }
     footer a {
       color: var(--primary);
       text-decoration: none;
       font-weight: 600;
-      margin-left: 0.5rem;
     }
   </style>
 </head>
@@ -127,6 +149,8 @@
   </header>
 
   <div class="container">
+
+    <!-- 1. Nuestros Servicios -->
     <h2 id="servicios" class="section-title">Nuestros Servicios</h2>
     <div class="services">
       <div class="card">
@@ -165,18 +189,40 @@
       </div>
     </div>
 
+    <!-- 2. Mini-Landing NFC -->
+    <h2 id="minilanding" class="section-title">Mini-Landing NFC de Ejemplo</h2>
+    <div class="embed">
+      <iframe
+        src="https://profecristian.my.canva.site/minilanding-nfc-ircd-iquique"
+        allowfullscreen>
+      </iframe>
+      <p>Acerca tu teléfono a la etiqueta o haz clic dentro del recuadro para probar.</p>
+    </div>
+
+    <!-- 3. Trivia de Salvación -->
+    <h2 id="trivia" class="section-title">Trivia de Salvación</h2>
+    <div class="embed">
+      <iframe
+        src="https://profecristian.my.canva.site/trivia-salvacion"
+        allowfullscreen>
+      </iframe>
+      <p>Responde las preguntas directamente aquí y fortalece tu fe.</p>
+    </div>
+
+    <!-- 4. Contacto -->
     <section class="contact">
       <h2 class="section-title">Contacto</h2>
       <p>📍 Peatonal Dos 3847, Altos del Mar, Iquique, Chile</p>
       <p>📞 +56 9 3315 0245</p>
-      <p>✉️ <a href="mailto:digitalheadspa@gmail.com">contacto@digitalhead.cl</a></p>
+      <p>✉️ <a href="mailto:digitalheadspa@gmail.com">digitalheadspa@gmail.com</a></p>
     </section>
+
   </div>
 
   <footer>
-    © 2025 Digital Head SpA
-    <a href="politica.html">Política de Privacidad</a>
+    © 2025 Digital Head SpA · <a href="politica.html">Política de Privacidad</a>
   </footer>
 
 </body>
 </html>
+
