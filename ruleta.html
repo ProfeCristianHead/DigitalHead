@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ruleta Día de la Madre</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      background: #f8f8f8;
+      padding: 20px;
+    }
+    h1, h3 {
+      margin: 5px 0;
+      color: #0984e3;
+    }
+    #pointer {
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 30px solid #e74c3c;
+      margin-bottom: 10px;
+    }
+    #wheel {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 5px solid #ccc;
+      overflow: hidden;
+    }
+    .segment {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      top: 50%;
+      left: 50%;
+      transform-origin: 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 10px;
+      box-sizing: border-box;
+      font-size: 14px;
+      font-weight: bold;
+      color: #fff;
+    }
+    #spinBtn {
+      margin: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background: #00b894;
+      color: #fff;
+      cursor: pointer;
+    }
+    #result {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 14px;
+    }
+    footer a {
+      color: #0984e3;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Día de la Madre – Iglesia Reconcíliate con Dios</h1>
+  <h3>Pastores Cristian Cabezas y Gabriela Pradena</h3>
+
+  <div id="pointer"></div>
+  <div id="wheel"></div>
+  <button id="spinBtn">Girar la gracia de mamá</button>
+  <div id="result"></div>
+
+  <footer>
+    Síguenos en Instagram 👉
+    <a href="https://www.instagram.com/ircd_iquique/?locale=ne_NP&hl=es-la" target="_blank">
+      @ircd_iquique
+    </a><br>
+    WhatsApp 📲
+    <a href="https://wa.me/56933150245" target="_blank">
+      +56 9 3315 0245
+    </a>
+  </footer>
+
+  <script>
+    const virtues = [
+      'Amor','Compasión','Fortaleza','Sabiduría',
+      'Generosidad','Paciencia','Resiliencia','Ternura',
+      'Fe','Humildad','Esperanza','Creatividad'
+    ];
+    const colors = [
+      '#e74c3c','#3498db','#f1c40f','#2ecc71',
+      '#9b59b6','#e67e22','#1abc9c','#e84393',
+      '#d35400','#6c5ce7','#fdcb6e','#00cec9'
+    ];
+    const wheel = document.getElementById('wheel');
+
+    // Crear los 12 segmentos
+    virtues.forEach((v, i) => {
+      const seg = document.createElement('div');
+      seg.className = 'segment';
+      seg.style.background = colors[i];
+      seg.style.transform = 
+        `rotate(${(360/virtues.length)*i}deg) skewY(-${90 - 360/virtues.length}deg)`;
+      seg.innerText = v;
+      wheel.appendChild(seg);
+    });
+
+    let spinning = false;
+    document.getElementById('spinBtn').addEventListener('click', () => {
+      if (spinning) return;
+      spinning = true;
+      const spins = 5; 
+      const randomDeg = Math.floor(Math.random()*360);
+      const totalDeg = spins*360 + randomDeg;
+      wheel.style.transition = 'transform 4s ease-out';
+      wheel.style.transform = `rotate(${totalDeg}deg)`;
+
+      setTimeout(() => {
+        const finalDeg = totalDeg % 360;
+        const index = Math.floor((360 - finalDeg) / (360/virtues.length)) % virtues.length;
+        document.getElementById('result').innerText = `¡Ha salido: ${virtues[index]}!`;
+        // Ajustar la posición para siguientes giros
+        wheel.style.transition = '';
+        wheel.style.transform = `rotate(${finalDeg}deg)`;
+        spinning = false;
+      }, 4000);
+    });
+  </script>
+</body>
+</html>
