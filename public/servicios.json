@@ -1,0 +1,18 @@
+{
+    "empresa": "Digital Head SpA",
+    "descripcion": "Asesoría digital y soluciones tecnológicas para iglesias, colegios y empresas",
+    "contacto": {
+      "telefono": "+56 9 5092 8840",
+      "email": "digitalheadspa@gmail.com",
+      "web": "https://www.digitalhead.cl"
+    },
+    "servicios": [
+      "Asesoría y automatización de procesos",
+      "Desarrollo de páginas web y minilanding NFC",
+      "Creación de quizzes y juegos interactivos",
+      "Integración de chatbots IA",
+      "Gestión de redes sociales y formularios",
+      "Hosting y despliegue de aplicaciones"
+    ]
+  }
+  

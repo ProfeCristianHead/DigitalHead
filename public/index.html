@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Digital Head SpA | Asesoría digital y soluciones tecnológicas para iglesias, colegios y empresas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #0984e3;
+      --secondary: #00b894;
+      --dark: #0a3d62;
+      --light: #f4f4f4;
+      --text: #2d3436;
+      --radius: 8px;
+      --transition: .3s ease;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--text); line-height: 1.6; }
+    header { background: var(--primary); color: #fff; text-align: center; padding: 2rem 1rem; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin-top: .5rem; font-size: 1.1rem; }
+    /* ------------------ Encabezado con icono ------------------ */
+.site-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.site-header__icon {
+  width: 48px;
+  height: auto;
+  margin-right: 0.75rem;
+}
+
+.site-header__title {
+  font-size: 1.25rem;
+  color: var(--dark);
+  margin: 0;
+}
+/* --------------------------------------------------------- */
+
+    .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+    h2.section-title { text-align: center; color: var(--dark); margin-bottom: 1rem; position: relative; font-size: 1.8rem; }
+    h2.section-title::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--secondary);
+      margin: .5rem auto 0;
+      border-radius: var(--radius);
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    .card h3 { margin-bottom: 1rem; color: var(--primary); font-size: 1.2rem; }
+    .card ul { list-style: none; padding-left: 0; }
+    .card li {
+      margin: .5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .card li::before {
+      content: "\f058";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: var(--secondary);
+    }
+    #minilanding { margin: 3rem 0; text-align: center; }
+    #minilanding .card {
+      max-width: 360px;
+      margin: auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    #minilanding .card .top {
+      padding: 1.5rem;
+      background: #f0f8ff;
+    }
+    #minilanding .card .top .avatar {
+      width: 60px;
+      height: 60px;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      background: url('avatar-placeholder.png') center/cover no-repeat;
+    }
+    #minilanding .card .top h3 { margin: 0; font-size: 1.25rem; color: var(--primary); }
+    #minilanding .card .top p.location { margin: .25rem 0; color: #555; }
+    #minilanding .card .top p.message { margin-top: 1rem; font-size: 1rem; color: var(--primary); }
+    #minilanding .card a {
+      display: block;
+      padding: .75rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-top: 1px solid #e0f2f1;
+      transition: background var(--transition);
+    }
+    #minilanding .card a.instagram {
+      background: linear-gradient(90deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    }
+    #minilanding .card a.instagram:hover { opacity: .9; }
+    #minilanding .card a.form {
+      background: var(--secondary);
+      border-radius: 0 0 var(--radius) var(--radius);
+    }
+    #minilanding .card a.form:hover { opacity: .9; }
+
+    #trivia { margin: 3rem 0; text-align: center; }
+    #trivia-card {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    #trivia-card #question { font-size: 1.2rem; margin-bottom: 1.5rem; }
+    #trivia-card button.choice {
+      display: block;
+      width: 100%;
+      margin: .5rem 0;
+      padding: .75rem;
+      border: none;
+      border-radius: 6px;
+      background: #e0e0e0;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    #trivia-card button.choice.correct { background: #55efc4; }
+    #trivia-card button.choice.wrong   { background: #ff7675; }
+    #next-btn {
+      margin-top: 1.5rem;
+      padding: .75rem 1.5rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: none;
+    }
+    #score { margin-top: 1.5rem; font-weight: 600; }
+
+    #chatbot { margin: 3rem 0; }
+    #chat {
+      max-width: 600px;
+      margin: auto;
+    }
+    #messages {
+      min-height: 200px;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-y: auto;
+    }
+    #chat-form {
+      display: flex;
+      margin-top: 1rem;
+    }
+    #chat-input {
+      flex: 1;
+      padding: .75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px 0 0 4px;
+    }
+    #chat-form button {
+      padding: .75rem 1.5rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+
+    .contact {
+      background: #fff;
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .contact p { margin: .5rem 0; font-size: 1rem; }
+    .contact a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    .contact a[href^="https://wa.me"] {
+      display: inline-block;
+      margin-top: .5rem;
+      padding: .5rem 1rem;
+      background: #25D366;
+      color: #fff;
+      border-radius: var(--radius);
+      transition: background .3s;
+    }
+    .contact a[href^="https://wa.me"]:hover {
+      background: #1ebe57;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: .9rem;
+      background: var(--light);
+      margin-top: 2rem;
+    }
+    footer a { color: var(--primary); text-decoration: none; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <img
+    src="/assets/images/asesoria-crown.png"
+    alt="Logo Digital Head"
+    class="site-header__icon"
+  />
+  <h1 class="site-header__title">
+    Digital Head SpA | Asesoría digital y soluciones tecnológicas para iglesias, colegios y empresas
+  </h1>
+</header>
+
+
+  <div class="container">
+
+    <!-- 1. Nuestros Servicios -->
+    <h2 id="servicios" class="section-title">Nuestros Servicios</h2>
+    <div class="services">
+      <div class="card">
+        <h3>🧠 Evaluaciones de Lenguaje</h3>
+        <ul>
+          <li>Comprensión lectora (enseñanza media)</li>
+          <li>Versiones estándar y adaptadas para NEE</li>
+          <li>Formato editable (Word, PDF, Forms)</li>
+          <li>Solucionario y rúbrica simplificada</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🎮 Juegos interactivos en Canva</h3>
+        <ul>
+          <li>Trivias bíblicas y ruletas educativas</li>
+          <li>Test de personajes y preguntas temáticas</li>
+          <li>Compartible en web y redes sociales</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>📲 NFC para eventos</h3>
+        <ul>
+          <li>Pulseras y pegatinas programables</li>
+          <li>Minisites en Canva o personalizados</li>
+          <li>Compatibles con Android e iPhone</li>
+          <li>Reescribibles y resistentes</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🔄 Redes y formularios</h3>
+        <ul>
+          <li>Diseño de identidad visual</li>
+          <li>Gestión básica de Instagram/Facebook</li>
+          <li>Automatización de mensajes y encuestas</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2. Mini-Landing NFC -->
+    <section id="minilanding">
+      <h2 class="section-title">🔗 Mini-Landing NFC de Ejemplo</h2>
+      <div class="card">
+        <div class="top">
+          <div class="avatar"></div>
+          <h3>Iglesia Reconcíliate con Dios</h3>
+          <p class="location">Iquique</p>
+          <p class="message">¡Dios no se ha olvidado de ti! 🙌</p>
+        </div>
+        <a href="https://instagram.com/ircd_iquique" target="_blank" class="instagram">
+          <i class="fab fa-instagram"></i> Ver @ircd_iquique
+        </a>
+        <a href="https://forms.gle/nuTz4pJ2kqSQJLrb9" target="_blank" class="form">
+          <i class="fas fa-heart"></i> Escribe tu motivo de oración
+        </a>
+      </div>
+    </section>
+
+    <!-- 3. Trivia de Salvación -->
+    <section id="trivia">
+      <h2 class="section-title">🎮 Trivia de Salvación</h2>
+      <div id="trivia-card">
+        <div id="question"></div>
+        <div id="choices"></div>
+        <button id="next-btn">Siguiente</button>
+        <div id="score"></div>
+      </div>
+    </section>
+
+    <!-- 4. Chatbot IA -->
+    <section id="chatbot">
+      <h2 class="section-title">💬 Asesor IA</h2>
+      <div id="chat">
+        <div id="messages"></div>
+        <form id="chat-form">
+          <input id="chat-input" type="text" placeholder="Escribe tu mensaje..." />
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 5. Contacto -->
+    <section class="contact">
+      <h2 class="section-title">Contacto</h2>
+      <p>📍 Peatonal Dos 3847, Altos del Mar, Iquique, Chile</p>
+      <p>📞 <a href="tel:+56933150245">+56 9 3315 0245</a></p>
+      <p>✉️ <a href="mailto:digitalheadspa@gmail.com">digitalheadspa@gmail.com</a></p>
+      <p><a href="https://wa.me/56933150245" target="_blank"><i class="fab fa-whatsapp"></i> Chatea con nosotros en WhatsApp</a></p>
+    </section>
+
+  </div>
+
+  <footer>© 2025 Digital Head SpA · <a href="politica.html">Política de Privacidad</a></footer>
+
+  <script>
+    // Trivia
+    const questions = [
+      { q: "¿Qué significa “salvación” en el contexto cristiano?", choices: ["Perdón de pecados","Exclusión social","Castigo eterno","Ritos religiosos"], correct: 0 },
+      { q: "¿Quién es considerado el Salvador en la fe cristiana?", choices: ["Moisés","Jesús","Pablo","Pedro"], correct: 1 },
+      { q: "Según Juan 3:16, ¿por qué entregó Dios a su Hijo?", choices: ["Para gobernar Israel","Para dar vida eterna","Para establecer una nueva ley","Para escribir la Biblia"], correct: 1 },
+      { q: "¿Qué acto simboliza la nueva vida en Cristo?", choices: ["Bautismo","Ayuno","Santuario","Campaña"], correct: 0 },
+      { q: "¿Cómo accedemos a la gracia de Dios?", choices: ["Por obras","Por fe","Por conocimiento","Por esfuerzo"], correct: 1 }
+    ];
+    let current = 0, score = 0;
+    const qEl = document.getElementById("question"),
+          cEl = document.getElementById("choices"),
+          nBtn = document.getElementById("next-btn"),
+          sEl = document.getElementById("score");
+    function showQuestion() {
+      const {q, choices} = questions[current];
+      qEl.textContent = q;
+      cEl.innerHTML = "";
+      choices.forEach((text,i) => {
+        const btn = document.createElement("button");
+        btn.textContent = text;
+        btn.className = "choice";
+        btn.onclick = () => selectAnswer(i, btn);
+        cEl.appendChild(btn);
+      });
+      nBtn.style.display = "none";
+      sEl.textContent = "";
+    }
+    function selectAnswer(i, btn) {
+      document.querySelectorAll(".choice").forEach(b=>b.disabled=true);
+      const correct = questions[current].correct;
+      if (i===correct) { score++; btn.classList.add("correct"); }
+      else { btn.classList.add("wrong"); document.querySelectorAll(".choice")[correct].classList.add("correct"); }
+      nBtn.style.display = "inline-block";
+    }
+    nBtn.onclick = () => {
+      current++;
+      if (current < questions.length) showQuestion();
+      else {
+        qEl.textContent = "¡Has completado la trivia!";
+        cEl.innerHTML = "";
+        nBtn.style.display = "none";
+        sEl.textContent = `Tu puntaje: ${score} / ${questions.length}`;
+      }
+    };
+    showQuestion();
+  </script>
+
+    <!-- ------------------ Chatbot IA Script (con avatar) ------------------ -->
+  <script>
+    // Referencias al DOM
+    const form     = document.getElementById('chat-form'),
+          input    = document.getElementById('chat-input'),
+          messages = document.getElementById('messages');
+
+    // Nombre y avatar de nuestro bot
+    const BOT_NAME   = "AsesorIA";
+    const BOT_AVATAR = "/assets/images/asesoria-crown.png";
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+
+      // 1) muestra tu mensaje
+      appendMessage("Tú", text);
+      input.value = '';
+
+      // 2) llama al servidor
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text })
+      });
+      const { reply } = await res.json();
+
+      // 3) muestra la respuesta del bot
+      appendMessage(BOT_NAME, reply);
+    });
+
+    function appendMessage(who, text) {
+      const div = document.createElement('div');
+      div.style.display    = 'flex';
+      div.style.alignItems = 'center';
+      div.style.margin     = '0.5rem 0';
+
+      // Si viene del bot, anteponemos el avatar
+      if (who === BOT_NAME) {
+        const img = document.createElement('img');
+        img.src           = BOT_AVATAR;
+        img.width         = 32;
+        img.height        = 32;
+        img.style.borderRadius  = '50%';
+        img.style.marginRight   = '0.5rem';
+        div.appendChild(img);
+      }
+
+      // Y luego el texto
+      const span = document.createElement('span');
+      span.innerHTML = `<strong>${who}:</strong> ${text}`;
+      div.appendChild(span);
+
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+    }
+  </script>
+
+</body>
+</html>
